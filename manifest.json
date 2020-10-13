@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,                       //清单文件的版本，这个必须写, manifest文件版本号。Chrome18开始必须为2
+    "name": "数据下载",                           // 插件的名称
+    "version": "1.0.1",                          // 插件的版本。由1到4个整数构成。多个整数间用"."隔开
+    "description": "这是一个插件描述:可以下载超星里面题目的插件并导出Excel文件",                // 插件描述	
+    "icons": {                                   // 图标，一般偷懒全部用一个尺寸的也没问题
+        "16": "image/download.png",              //浏览器小图标 
+        "48": "image/download.png",              //扩展管理页面
+        "128": "image/download.png"              //应用商店安装页面
+    },                                           //扩展图标。推荐大小16，48，128
+    "browser_action": 
+    {//这里"browser_action"里面不写内容是为在"background.js"里面增加监听事件
+        //即在点击右上角图标时开始下载任务
+    }, 
+    "background":{                               // 会一直常驻的后台JS或后台页面
+        // 2种指定方式，如果指定JS，那么会自动生成一个背景页
+        "scripts": ["js/background.js"]
+    },
+    "permissions":[
+        "tabs",//要将js注入到页面里面，需要tabs的权限
+        "https://mooc1-1.chaoxing.com/*" //注入js的网址权限
+    ]
+}
